@@ -1,11 +1,38 @@
-const range = document.getElementById("jsRange");
+function swap(elem1, elem2) {
+    console.log('In swap()');
+    
+    let temp = elem1.style.height;
+    elem1.style.height = elem2.style.height;
+    elem2.style.height = temp;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const rangeSize = document.getElementById("jsRangeSize");
+const rangeSpeed = document.getElementById("jsRangeSpeed");
 const sort = document.getElementById("jsSort");
 const newArray = document.getElementById("jsNewArray");
+let DEFAULT_DELAY = 501;
+let MAX_DELAY = 1001;
 
 
 let array = [];
+let delay = DEFAULT_DELAY;
 
-createNewArray();
+
+function disableButtons(){
+    sort.disabled = true;
+    newArray.disabled = true;
+    rangeSize.disabled = true;
+}
+function enableButtons(){
+    sort.disabled = false;
+    newArray.disabled = false;
+    rangeSize.disabled = false;
+}
+
 
 function createNewArray(size = 60) {
     deleteChild();
@@ -18,7 +45,7 @@ function createNewArray(size = 60) {
 
     const bars = document.querySelector("#bars");
 
-    // create multiple element div using loop and adding class 'bar col'
+    // create multiple element div using loop and adding class 'bar col(barNo)'
     for (let i = 0; i < size; i++) {
         const bar = document.createElement("div");
         bar.style.height = `${array[i]*2}px`;
@@ -28,33 +55,39 @@ function createNewArray(size = 60) {
         bars.appendChild(bar);
     }
 }
-
 function deleteChild() {
     const bar = document.querySelector("#bars");
     bar.innerHTML = '';
 }
 
 
-function handleRangeChange(event){
+function handleRangeSizeChange(event){
     const arraySize = parseInt(event.target.value);
     createNewArray(arraySize);
 }
-
-if(range){
-    range.addEventListener("input",handleRangeChange);
+function handleRangeSpeedChange(event){
+    delay = MAX_DELAY - parseInt(event.target.value);
 }
 
-function handleSort(event){
 
-}
-
-function handlenewArray(event){
+function handleNewArray(event){
     createNewArray(array.length);
 }
 
-if(sort){
-    sort.addEventListener("click",handleSort);
+
+if(rangeSize){
+    rangeSize.addEventListener("input",handleRangeSizeChange);
+}
+if(rangeSpeed){
+    rangeSpeed.addEventListener("input",handleRangeSpeedChange);
 }
 if(newArray){
-    newArray.addEventListener("click",handlenewArray);
+    newArray.addEventListener("click",handleNewArray);
 }
+
+
+
+
+
+
+createNewArray();
