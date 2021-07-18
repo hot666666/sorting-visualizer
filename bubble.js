@@ -25,7 +25,7 @@ async function bubbleSort() {
 }
 
 
-sort.addEventListener('click', async function(){
+bubbleSortBtn.addEventListener('click', async function(){
     disableButtons();
     await bubbleSort();
     enableButtons();

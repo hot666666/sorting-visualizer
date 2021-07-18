@@ -12,25 +12,32 @@ function sleep(ms) {
 
 const rangeSize = document.getElementById("jsRangeSize");
 const rangeSpeed = document.getElementById("jsRangeSpeed");
-const sort = document.getElementById("jsSort");
+const bubbleSortBtn = document.getElementById("jsBubbleSort");
+const mergeSortBtn = document.getElementById("jsMergeSort");
 const newArray = document.getElementById("jsNewArray");
-let DEFAULT_DELAY = 501;
+let DEFAULT_DELAY = 51;
 let MAX_DELAY = 1001;
-
+const btns = document.querySelectorAll(".btns");
+console.log(btns);
 
 let array = [];
 let delay = DEFAULT_DELAY;
 
 
 function disableButtons(){
-    sort.disabled = true;
     newArray.disabled = true;
     rangeSize.disabled = true;
+    btns.forEach(element => {
+        element.disabled = true;
+    });
 }
 function enableButtons(){
-    sort.disabled = false;
     newArray.disabled = false;
     rangeSize.disabled = false;
+    btns.array.forEach(element => {
+        element.disabled = false;
+    });
+
 }
 
 
@@ -39,7 +46,7 @@ function createNewArray(size = 60) {
 
     array = [];
     for (let i = 0; i < size; i++) {
-        array.push(Math.floor(Math.random() * 400) + 1);
+        array.push(Math.floor(Math.random() * 255) + 1);
     }
     console.log(array);
 
