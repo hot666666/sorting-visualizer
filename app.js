@@ -34,7 +34,7 @@ function disableButtons(){
 function enableButtons(){
     newArray.disabled = false;
     rangeSize.disabled = false;
-    btns.array.forEach(element => {
+    btns.forEach(element => {
         element.disabled = false;
     });
 
