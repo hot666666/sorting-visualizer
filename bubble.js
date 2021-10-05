@@ -26,6 +26,8 @@ async function bubbleSort() {
 
 
 bubbleSortBtn.addEventListener('click', async function(){
+    const bar_arr = document.querySelectorAll(".bar");
+    initializeColor(bar_arr);
     disableButtons();
     await bubbleSort();
     enableButtons();

@@ -14,6 +14,7 @@ const rangeSize = document.getElementById("jsRangeSize");
 const rangeSpeed = document.getElementById("jsRangeSpeed");
 const bubbleSortBtn = document.getElementById("jsBubbleSort");
 const mergeSortBtn = document.getElementById("jsMergeSort");
+const quickSortBtn = document.getElementById("jsQuickSort");
 const newArray = document.getElementById("jsNewArray");
 let DEFAULT_DELAY = 51;
 let MAX_DELAY = 1001;
@@ -66,8 +67,11 @@ function deleteChild() {
     const bar = document.querySelector("#bars");
     bar.innerHTML = '';
 }
-
-
+function initializeColor(bars){
+    bars.forEach( bar =>
+        bar.style.background = 'cyan'
+    );
+}
 function handleRangeSizeChange(event){
     const arraySize = parseInt(event.target.value);
     createNewArray(arraySize);

@@ -49,6 +49,7 @@ async function mergeSort(arr, left, right){
 
 mergeSortBtn.addEventListener('click', async function(){
     const bar_arr = document.querySelectorAll(".bar");
+    initializeColor(bar_arr);
     disableButtons();
     await mergeSort(bar_arr ,0,bar_arr.length-1);
     enableButtons();
