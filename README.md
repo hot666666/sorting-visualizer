@@ -1,5 +1,6 @@
-# sorting-visualizer
-sorting-visualizer with js
+Sorting Visualizer
+=====
+### sorting-visualizer with js
 
 default : cyan
 
@@ -10,3 +11,5 @@ red : will be swapped
 green : fully or partially sorted
 
 gray : pivot
+
+## [Try it👍](https://hot666666.github.io/sorting-visualizer/)
